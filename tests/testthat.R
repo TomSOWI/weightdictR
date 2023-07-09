@@ -10,3 +10,4 @@ library(testthat)
 library(weightedMultidictR)
 
 test_check("weightedMultidictR")
+
