@@ -1,4 +1,4 @@
-Package: weightedMultidictR
+Package: weightdictR
 Title: Faciliate usage of weighted Dictionaries
 Version: 0.0.0.9000
 Authors@R: 
@@ -16,5 +16,5 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     stringr
-URL: https://github.com/TomSOWI/weightedMultidictR
-BugReports: https://github.com/TomSOWI/weightedMultidictR/issues
+URL: https://github.com/TomSOWI/weightdictR
+BugReports: https://github.com/TomSOWI/weightdictR/issues

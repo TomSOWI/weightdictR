@@ -1,21 +1,21 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# weightedMultidictR
+# weightdictR
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of weightedMultidictR is to …
+The goal of weightdictR is to …
 
 ## Installation
 
-You can install the development version of weightedMultidictR from
+You can install the development version of weightdictR from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("TomSOWI/weightedMultidictR")
+devtools::install_github("TomSOWI/weightdictR")
 ```
 
 ## Example
@@ -23,7 +23,7 @@ devtools::install_github("TomSOWI/weightedMultidictR")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(weightedMultidictR)
+library(weightdictR)
 ## basic example code
 ```
 
