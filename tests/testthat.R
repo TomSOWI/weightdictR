@@ -7,7 +7,7 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(weightedMultidictR)
+library(weightdictR)
 
-test_check("weightedMultidictR")
+test_check("weightdictR")
 
