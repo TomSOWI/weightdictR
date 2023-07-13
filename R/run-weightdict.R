@@ -1,3 +1,19 @@
+#' Title
+#'
+#' @param data
+#' @param dict_compound
+#' @param dict_name
+#' @param dict_weight
+#' @param dict_weight_name
+#' @param prepare_corp
+#' @param include_main_dict
+#' @param include_totals
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' @importFrom magrittr %>%
 run_weightdictR <- function(
   data,
   dict_compound,
@@ -10,59 +26,37 @@ run_weightdictR <- function(
 )
 {
   if (prepare_corp == TRUE) {
-    data <- corpus_to_compound_tokens(data)
+    data <- corpus_to_compound_tokens(data) #define function
   }
 
-  df_kwic <- kwic(data, pattern = dict_compound, valuetype = "regex", window = 1, case_insensitive = T)
+  df_kwic <- quanteda::kwic(data, pattern = dict_compound, valuetype = "regex", window = 1, case_insensitive = T)
   merged <- merge(dict_weight, as.data.frame(df_kwic), by = "pattern")
-  party <- data.frame(docname = quanteda::docnames(data), party = docvars(data)$party)
 
   if (include_main_dict == TRUE) {
     merged$dict <- 1
     merged <- merged %>%
-      select(docname, dict, weight) %>%
-      group_by(docname) %>%
-      summarize(
+      dplyr::select(docname, dict, weight) %>%
+      dplyr::group_by(docname) %>%
+      dplyr::reframe(
         dict = sum(dict),
         weight = sum(weight)
       )
-    result <- merge(merged, party, by = "docname")
-    result <- result %>%
-      select(party, dict, weight) %>%
-      group_by(party) %>%
-      summarize(
-        dict = sum(dict),
-        weight = sum(weight)
-      )
-    colnames(result) <- c("party", dict_name, dict_weight_name)
   } else {
     merged <- merged %>%
-      select(docname, weight) %>%
-      group_by(docname) %>%
-      summarize(
+      dplyr::select(docname, weight) %>%
+      dplyr::group_by(docname) %>%
+      dplyr::reframe(
         weight = sum(weight)
       )
-    result <- merge(merged, party, by = "docname")
-    result <- result %>%
-      select(party, weight) %>%
-      group_by(party) %>%
-      summarize(
-        weight = sum(weight)
-      )
-    colnames(result) <- c("party", dict_weight_name)
   }
 
+
   if (include_totals == TRUE) {
-    totals <- data.frame(n_sentences = docvars(data)$n_sentences, n_tokens = docvars(data)$n_tokens,party = docvars(data)$party)
-    totals <- totals %>%
-      group_by(party) %>%
-      summarize(
-        n_sentences = sum(n_sentences),
-        n_tokens = sum(n_tokens)
-      )
-    result <- merge(result, totals, by = "party")
+    totals <- data.frame(n_sentences = quanteda::docvars(data)$n_sentences, n_tokens = quanteda::docvars(data)$n_tokens)
+    result <- merge(result, totals, by = "doc_id")
   }
 
   return(result)
+
 }
 

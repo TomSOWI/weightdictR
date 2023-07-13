@@ -10,4 +10,3 @@ library(testthat)
 library(weightdictR)
 
 test_check("weightdictR")
-
