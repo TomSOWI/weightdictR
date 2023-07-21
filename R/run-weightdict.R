@@ -7,13 +7,13 @@
 #' @param dict_weight_name
 #' @param prepare_corp
 #' @param include_main_dict
-#' @param include_totals
 #'
 #' @return
 #' @export
 #'
 #' @examples
 #' @importFrom magrittr %>%
+
 run_weightdictR <- function(
   data,
   dict_compound,
@@ -21,8 +21,7 @@ run_weightdictR <- function(
   dict_weight,
   dict_weight_name = "weighted",
   prepare_corp = FALSE,
-  include_main_dict = TRUE,
-  include_totals = TRUE
+  include_main_dict = TRUE
 )
 {
   if (prepare_corp == TRUE) {
@@ -50,11 +49,6 @@ run_weightdictR <- function(
       )
   }
 
-
-  if (include_totals == TRUE) {
-    totals <- data.frame(n_sentences = quanteda::docvars(data)$n_sentences, n_tokens = quanteda::docvars(data)$n_tokens)
-    result <- merge(result, totals, by = "doc_id")
-  }
 
   return(result)
 

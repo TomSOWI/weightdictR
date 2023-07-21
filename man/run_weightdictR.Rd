@@ -11,12 +11,11 @@ run_weightdictR(
   dict_weight,
   dict_weight_name = "weighted",
   prepare_corp = FALSE,
-  include_main_dict = TRUE,
-  include_totals = TRUE
+  include_main_dict = TRUE
 )
 }
 \arguments{
-\item{include_totals}{}
+\item{include_main_dict}{}
 }
 \description{
 Title
