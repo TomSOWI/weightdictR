@@ -1,12 +1,14 @@
-#' Title
+#' Applies a weighted dictionary to a text
 #'
-#' @param data
-#' @param dict_compound
-#' @param dict_name
-#' @param dict_weight
-#' @param dict_weight_name
-#' @param prepare_corp
-#' @param include_main_dict
+#' @param data Data should be provided as an object that can be used for quntedas kwic function.
+#' Note: If you want to apply a dictionary containing wildcard patterns then you should prepare your textdata using corpus_to_compound_tokens().
+#' Otherwise you can set prepare_corp = TRUE but this is not recommended since it will take a while.
+#' @param dict Dict can be a quanteda dictionary or a character vector anything that works with quantedas kwic.
+#' @param dict_name Set a custom name for the original dictionary
+#' @param dict_weight Provide a dataframe containing a column "pattern" and "weight"
+#' @param dict_weight_name Set a custom name for the weighted dictionary
+#' @param prepare_corp Set to TRUE if you apply a dictionary containing wildcards and you have have not prepared your textdata
+#' @param include_main_dict Should resuts for the original dictionary be returned?
 #'
 #' @return
 #' @export
@@ -16,7 +18,7 @@
 
 run_weightdictR <- function(
   data,
-  dict_compound,
+  dict,
   dict_name = "original",
   dict_weight,
   dict_weight_name = "weighted",
@@ -26,6 +28,10 @@ run_weightdictR <- function(
 {
   if (prepare_corp == TRUE) {
     data <- corpus_to_compound_tokens(data) #define function
+  }
+
+  if (quanteda::is.dictionary(dict)){
+    pattern <-  unlist(pattern)
   }
 
   df_kwic <- quanteda::kwic(data, pattern = dict_compound, valuetype = "regex", window = 1, case_insensitive = T)

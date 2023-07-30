@@ -21,3 +21,6 @@ Imports:
     magrittr
 URL: https://github.com/TomSOWI/weightdictR
 BugReports: https://github.com/TomSOWI/weightdictR/issues
+Depends: 
+    R (>= 2.10)
+LazyData: true
