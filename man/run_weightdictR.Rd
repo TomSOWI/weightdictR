@@ -2,11 +2,11 @@
 % Please edit documentation in R/run-weightdict.R
 \name{run_weightdictR}
 \alias{run_weightdictR}
-\title{Title}
+\title{Applies a weighted dictionary to a text}
 \usage{
 run_weightdictR(
   data,
-  dict_compound,
+  dict,
   dict_name = "original",
   dict_weight,
   dict_weight_name = "weighted",
@@ -15,8 +15,22 @@ run_weightdictR(
 )
 }
 \arguments{
-\item{include_main_dict}{}
+\item{data}{Data should be provided as an object that can be used for quntedas kwic function.
+Note: If you want to apply a dictionary containing wildcard patterns then you should prepare your textdata using corpus_to_compound_tokens().
+Otherwise you can set prepare_corp = TRUE but this is not recommended since it will take a while.}
+
+\item{dict}{Dict can be a quanteda dictionary or a character vector anything that works with quantedas kwic.}
+
+\item{dict_name}{Set a custom name for the original dictionary}
+
+\item{dict_weight}{Provide a dataframe containing a column "pattern" and "weight"}
+
+\item{dict_weight_name}{Set a custom name for the weighted dictionary}
+
+\item{prepare_corp}{Set to TRUE if you apply a dictionary containing wildcards and you have have not prepared your textdata}
+
+\item{include_main_dict}{Should resuts for the original dictionary be returned?}
 }
 \description{
-Title
+Applies a weighted dictionary to a text
 }
