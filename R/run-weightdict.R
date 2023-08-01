@@ -34,7 +34,7 @@ run_weightdictR <- function(
     pattern <-  unlist(pattern)
   }
 
-  df_kwic <- quanteda::kwic(data, pattern = dict_compound, valuetype = "regex", window = 1, case_insensitive = T)
+  df_kwic <- quanteda::kwic(data, pattern = dict, valuetype = "regex", window = 1, case_insensitive = T)
   merged <- merge(dict_weight, as.data.frame(df_kwic), by = "pattern")
 
   if (include_main_dict == TRUE) {
