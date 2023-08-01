@@ -4,12 +4,14 @@
 \alias{get_pattern_stats}
 \title{Get information on how many times a pattern occurred in a text}
 \usage{
-get_pattern_stats(text, pattern)
+get_pattern_stats(text, pattern, regex = TRUE)
 }
 \arguments{
 \item{text}{A corpus or tokens object suitable for quantedas kwic function}
 
 \item{pattern}{A dictionary or a character vector}
+
+\item{regex}{Do the patterns contain regex? TRUE | FALSE}
 }
 \value{
 A dataframe with the columns pattern and match_count
