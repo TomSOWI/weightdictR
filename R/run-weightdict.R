@@ -1,4 +1,4 @@
-#' Applies a weighted dictionary to a text
+#' Deploy a weighted dictionary as a dataframe to text
 #'
 #' @param data Data should be provided as an object that can be used for quntedas kwic function.
 #' Note: If you want to apply a dictionary containing wildcard patterns then you should prepare your textdata using corpus_to_compound_tokens().
@@ -8,7 +8,7 @@
 #' @param dict_weight Provide a dataframe containing a column "pattern" and "weight"
 #' @param dict_weight_name Set a custom name for the weighted dictionary
 #' @param prepare_corp Set to TRUE if you apply a dictionary containing wildcards and you have have not prepared your textdata
-#' @param include_main_dict Should resuts for the original dictionary be returned?
+#' @param include_main_dict Should results for the original dictionary be returned?
 #'
 #' @return
 #' @export
@@ -47,7 +47,7 @@ run_weightdictR <- function(
         weight = sum(weight)
       )
   } else {
-    merged <- merged %>%
+    result <- merged %>%
       dplyr::select(docname, weight) %>%
       dplyr::group_by(docname) %>%
       dplyr::reframe(

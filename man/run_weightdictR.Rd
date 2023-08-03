@@ -2,7 +2,7 @@
 % Please edit documentation in R/run-weightdict.R
 \name{run_weightdictR}
 \alias{run_weightdictR}
-\title{Applies a weighted dictionary to a text}
+\title{Deploy a weighted dictionary as a dataframe to text}
 \usage{
 run_weightdictR(
   data,
@@ -29,8 +29,8 @@ Otherwise you can set prepare_corp = TRUE but this is not recommended since it w
 
 \item{prepare_corp}{Set to TRUE if you apply a dictionary containing wildcards and you have have not prepared your textdata}
 
-\item{include_main_dict}{Should resuts for the original dictionary be returned?}
+\item{include_main_dict}{Should results for the original dictionary be returned?}
 }
 \description{
-Applies a weighted dictionary to a text
+Deploy a weighted dictionary as a dataframe to text
 }
