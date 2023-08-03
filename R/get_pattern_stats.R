@@ -13,10 +13,10 @@
 get_pattern_stats <- function(text, pattern, regex = TRUE){
 
   if (regex == TRUE){
-    kwic <- kwic(toksBT17_20_clean, gruendl_patterns_to_compound(), "regex", window = 1)
+    kwic <- kwic(text, gruendl_patterns_to_compound(), "regex", window = 1)
   }
   else{
-    kwic <- kwic(toksBT17_20_clean, gruendl_patterns_to_compound(), window = 1)
+    kwic <- kwic(text, gruendl_patterns_to_compound(), window = 1)
   }
 
   kwic$match_count <- 1
