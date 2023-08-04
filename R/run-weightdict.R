@@ -11,13 +11,13 @@
 #' @return A dataframe objecct including the populism score per document
 #' @export
 #'
-#' @examples run_weightdictR(
+#' @examples run_weightdict(
 #' text = toksBT17_20_clean,
 #' dict = klotz_clara,
 #' dict_name = "klotz"
 #' )
 
-run_weightdictR <- function(
+run_weightdict <- function(
   text,
   dict,
   dict_name = "weighted_dict",
@@ -39,7 +39,7 @@ run_weightdictR <- function(
   }
 
   df_kwic <- quanteda::kwic(text, pattern = dict$pattern, valuetype = "regex", window = 1, case_insensitive = T)
-  merged <- merge(dict_weight, as.data.frame(df_kwic), by = "pattern")
+  merged <- merge(dict, as.data.frame(df_kwic), by = "pattern")
 
   if (include_nonweight == TRUE) {
     merged$dict <- 1
