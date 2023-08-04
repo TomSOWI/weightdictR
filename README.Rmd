@@ -18,7 +18,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of weightdictR is to facialiate the deployment of weighted dictionaries especially one including complex muliword pattern.
+The goal of weightdictR is to facialiate the deployment of weighted dictionaries especially ones including complex muliword pattern.
+The package was build taking inspirations from gruendls package [multidictR](https://github.com/jogrue/multidictR).
 
 ## Installation
 
@@ -31,28 +32,28 @@ devtools::install_github("TomSOWI/weightdictR")
 
 ## Example
 
-First of all clean and prepare textdata. This is **only necessary** if the weighted dictionary includes **complex multiword-patterns**.
+First of all clean and prepare textdata.
+This is **only necessary** if the weighted dictionary includes **complex multiword-patterns**.
 
-```{r example}
-
-devtools::install_github("TomSOWI/weightdictR")
-
+```{r preparation, eval=FALSE}
 library(weightdictR)
 library(quanteda)
 library(dplyr)
 
-
-#First of all clean and prepare textdata. This is only necessary if the weighted dictionary includes complex multiword-patterns.
+#Takes a long time to execute
 
 toksBT17_20_clean <- corpus_to_compound_tokens(corpus = corpBT17_20,
-  pattern = klotz_clara$pattern,
+  pattern = popdictR::gruendl_terms,
   include_totals = TRUE)
 
-#Include party variable
-quanteda::docvars(toksBT17_20_clean)$party <- docvars(corpBT17_20)$party
 
+```
 
-#This is already done for the example
+...this is already done since the data is included in the package
+
+```{r exampe, eval=FALSE}
+
+#Clean and compound textdata
 weightdictR::toksBT17_20_clean
 
 #This is my dictionary
