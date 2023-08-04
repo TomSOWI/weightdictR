@@ -22,7 +22,7 @@ run_weightdict <- function(
   dict,
   dict_name = "weighted_dict",
   prepare_corp = FALSE,
-  add_no_weight = FALSE
+  add_no_weight_results = FALSE
 )
 {
   if (!"pattern" %in% colnames(dict)) {
@@ -41,7 +41,7 @@ run_weightdict <- function(
   df_kwic <- quanteda::kwic(text, pattern = dict$pattern, valuetype = "regex", window = 1, case_insensitive = T)
   merged <- merge(dict, as.data.frame(df_kwic), by = "pattern")
 
-  if (include_nonweight == TRUE) {
+  if (add_no_weight_results  == TRUE) {
     merged$dict <- 1
     merged <- merged %>%
       dplyr::select(docname, dict, weight) %>%
