@@ -91,7 +91,7 @@
 #' replaced by multi-word compounds.
 #'
 #' @export
-make_compounds1 <- function(
+make_compounds_updated <- function(
   text,
   patterns,
   wordsep = " ",

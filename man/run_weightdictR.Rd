@@ -5,32 +5,36 @@
 \title{Deploy a weighted dictionary as a dataframe to text}
 \usage{
 run_weightdictR(
-  data,
+  text,
   dict,
-  dict_name = "original",
-  dict_weight,
-  dict_weight_name = "weighted",
+  dict_name = "weighted_dict",
   prepare_corp = FALSE,
-  include_main_dict = TRUE
+  add_no_weight = FALSE
 )
 }
 \arguments{
-\item{data}{Data should be provided as an object that can be used for quntedas kwic function.
+\item{text}{Data should be provided as an object that can be used for quntedas kwic function.
 Note: If you want to apply a dictionary containing wildcard patterns then you should prepare your textdata using corpus_to_compound_tokens().
 Otherwise you can set prepare_corp = TRUE but this is not recommended since it will take a while.}
 
-\item{dict}{Dict can be a quanteda dictionary or a character vector anything that works with quantedas kwic.}
+\item{dict}{Provide a dataframe containing a column "pattern" and "weight"}
 
-\item{dict_name}{Set a custom name for the original dictionary}
+\item{dict_name}{Set a custom name}
 
-\item{dict_weight}{Provide a dataframe containing a column "pattern" and "weight"}
+\item{prepare_corp}{Set to TRUE if you apply a dictionary containing wildcards and you have not prepared your textdata}
 
-\item{dict_weight_name}{Set a custom name for the weighted dictionary}
-
-\item{prepare_corp}{Set to TRUE if you apply a dictionary containing wildcards and you have have not prepared your textdata}
-
-\item{include_main_dict}{Should results for the original dictionary be returned?}
+\item{add_no_weight}{Should results without considering weights be returned in addition}
+}
+\value{
+A dataframe objecct including the populism score per document
 }
 \description{
 Deploy a weighted dictionary as a dataframe to text
+}
+\examples{
+run_weightdictR(
+text = toksBT17_20_clean,
+dict = klotz_clara,
+dict_name = "klotz"
+)
 }

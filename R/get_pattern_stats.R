@@ -9,23 +9,23 @@
 #' @return A dataframe with the columns pattern and match_count
 #' @export
 #'
-#' @examples
+#' @examples get_pattern_stats(text = toksBT17_20_clean, pattern = klotz_clara$pattern, regex = TRUE)
 get_pattern_stats <- function(text, pattern, regex = TRUE){
 
   if (regex == TRUE){
-    kwic <- kwic(text, gruendl_patterns_to_compound(), "regex", window = 1)
+    kwic <- quanteda::kwic(text, pattern, "regex", window = 1)
   }
   else{
-    kwic <- kwic(text, gruendl_patterns_to_compound(), window = 1)
+    kwic <- quanteda::kwic(text, pattern, window = 1)
   }
 
   kwic$match_count <- 1
   df <- as.data.frame(kwic)
 
   result <- df%>%
-    select(pattern, match_count)%>%
-    group_by(pattern)%>%
-    summarise(
+   dplyr::select(pattern, match_count)%>%
+    dplyr::group_by(pattern)%>%
+    dplyr::summarise(
       match_count = sum(match_count)
     )
 

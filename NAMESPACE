@@ -2,10 +2,6 @@
 
 export(corpus_to_compound_tokens)
 export(get_pattern_stats)
-export(get_pop_tokens_updated)
-export(make_compounds1)
+export(make_compounds_updated)
+export(make_patterns_compound)
 export(run_weightdictR)
-export(str_split_one)
-importFrom(magrittr,"%>%")
-importFrom(quanteda,"docnames<-")
-importFrom(quanteda,docvars)

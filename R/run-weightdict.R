@@ -1,43 +1,47 @@
 #' Deploy a weighted dictionary as a dataframe to text
 #'
-#' @param data Data should be provided as an object that can be used for quntedas kwic function.
+#' @param text Data should be provided as an object that can be used for quntedas kwic function.
 #' Note: If you want to apply a dictionary containing wildcard patterns then you should prepare your textdata using corpus_to_compound_tokens().
 #' Otherwise you can set prepare_corp = TRUE but this is not recommended since it will take a while.
-#' @param dict Dict can be a quanteda dictionary or a character vector anything that works with quantedas kwic.
-#' @param dict_name Set a custom name for the original dictionary
-#' @param dict_weight Provide a dataframe containing a column "pattern" and "weight"
-#' @param dict_weight_name Set a custom name for the weighted dictionary
-#' @param prepare_corp Set to TRUE if you apply a dictionary containing wildcards and you have have not prepared your textdata
-#' @param include_main_dict Should results for the original dictionary be returned?
+#' @param dict Provide a dataframe containing a column "pattern" and "weight"
+#' @param dict_name Set a custom name
+#' @param prepare_corp Set to TRUE if you apply a dictionary containing wildcards and you have not prepared your textdata
+#' @param add_no_weight Should results without considering weights be returned in addition
 #'
-#' @return
+#' @return A dataframe objecct including the populism score per document
 #' @export
 #'
-#' @examples
-#' @importFrom magrittr %>%
+#' @examples run_weightdictR(
+#' text = toksBT17_20_clean,
+#' dict = klotz_clara,
+#' dict_name = "klotz"
+#' )
 
 run_weightdictR <- function(
-  data,
+  text,
   dict,
-  dict_name = "original",
-  dict_weight,
-  dict_weight_name = "weighted",
+  dict_name = "weighted_dict",
   prepare_corp = FALSE,
-  include_main_dict = TRUE
+  add_no_weight = FALSE
 )
 {
+  if (!"pattern" %in% colnames(dict)) {
+    print("There is no column named pattern")
+    stop()
+  }
+  if (!"weight" %in% colnames(dict)) {
+    print("There is no column named weight")
+    stop()
+  }
+
   if (prepare_corp == TRUE) {
-    data <- corpus_to_compound_tokens(data) #define function
+    text <- corpus_to_compound_tokens(text)
   }
 
-  if (quanteda::is.dictionary(dict)){
-    pattern <-  unlist(pattern)
-  }
-
-  df_kwic <- quanteda::kwic(data, pattern = dict, valuetype = "regex", window = 1, case_insensitive = T)
+  df_kwic <- quanteda::kwic(text, pattern = dict$pattern, valuetype = "regex", window = 1, case_insensitive = T)
   merged <- merge(dict_weight, as.data.frame(df_kwic), by = "pattern")
 
-  if (include_main_dict == TRUE) {
+  if (include_nonweight == TRUE) {
     merged$dict <- 1
     merged <- merged %>%
       dplyr::select(docname, dict, weight) %>%

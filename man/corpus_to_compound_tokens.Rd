@@ -2,15 +2,25 @@
 % Please edit documentation in R/corpus_to_compound_tokens.R
 \name{corpus_to_compound_tokens}
 \alias{corpus_to_compound_tokens}
-\title{Title}
+\title{Prepares a text for deployment of a multiword dictionary}
 \usage{
-corpus_to_compound_tokens(corp, pattern)
+corpus_to_compound_tokens(corpus, pattern, include_totals = FALSE)
 }
 \arguments{
-\item{corp}{A corpus object}
+\item{corpus}{A corpus object}
 
 \item{pattern}{A list of patterns or a quanteda dictionary object}
+
+\item{include_totals}{Should the returned tokens object include n_sentences and n_tokens per document?}
+}
+\value{
+A compound token object
 }
 \description{
-Title
+Prepares a text for deployment of a multiword dictionary
+}
+\examples{
+corpus_to_compound_tokens(corpus = corpBT17_20,
+ pattern = klotz_clara$pattern,
+ include_totals = TRUE)
 }

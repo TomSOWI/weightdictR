@@ -19,3 +19,6 @@ A dataframe with the columns pattern and match_count
 \description{
 Get information on how many times a pattern occurred in a text
 }
+\examples{
+get_pattern_stats(text = toksBT17_20_clean, pattern = klotz_clara$pattern, regex = TRUE)
+}

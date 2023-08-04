@@ -1,5 +1,5 @@
 Package: weightdictR
-Title: Faciliate usage of weighted Dictionaries
+Title: Faciliate deployment of weighted dictionaries
 Version: 0.0.0.9000
 Authors@R: 
     person("Tom", "Klotz", , "tomklotz@gmx.net", role = c("aut", "cre"),
@@ -16,7 +16,6 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     quanteda,
-    stringr,
     dplyr,
     magrittr,
     regexhelpeR (>= 1.1.0)
