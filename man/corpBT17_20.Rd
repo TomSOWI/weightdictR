@@ -11,7 +11,7 @@ A corpus .
 corpBT17_20
 }
 \description{
-Textdata from the 17. till the ongoing 20. period (2023) of the German Parliament.
+Sanmple textdata from the 17. till the ongoing 20. period (2023) of the German Parliament.
 }
 \references{
 Klotz, T. (2023). How can populism be identified in political texts taking context into account?: Development of a new populism dictionary

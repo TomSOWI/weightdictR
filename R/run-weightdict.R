@@ -6,7 +6,7 @@
 #' @param dict Provide a dataframe containing a column "pattern" and "weight"
 #' @param dict_name Set a custom name
 #' @param prepare_corp Set to TRUE if you apply a dictionary containing wildcards and you have not prepared your textdata
-#' @param add_no_weight Should results without considering weights be returned in addition
+#' @param add_no_weight_results Should results without considering weights be returned in addition
 #'
 #' @return A dataframe objecct including the populism score per document
 #' @export

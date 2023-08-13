@@ -9,7 +9,7 @@ run_weightdict(
   dict,
   dict_name = "weighted_dict",
   prepare_corp = FALSE,
-  add_no_weight = FALSE
+  add_no_weight_results = FALSE
 )
 }
 \arguments{
@@ -23,7 +23,7 @@ Otherwise you can set prepare_corp = TRUE but this is not recommended since it w
 
 \item{prepare_corp}{Set to TRUE if you apply a dictionary containing wildcards and you have not prepared your textdata}
 
-\item{add_no_weight}{Should results without considering weights be returned in addition}
+\item{add_no_weight_results}{Should results without considering weights be returned in addition}
 }
 \value{
 A dataframe objecct including the populism score per document

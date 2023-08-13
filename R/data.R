@@ -1,6 +1,6 @@
 #' Original Data used to calculate weights
 #'
-#'Textdata from the 17. till the ongoing 20. period (2023) of the German Parliament.
+#'Sanmple textdata from the 17. till the ongoing 20. period (2023) of the German Parliament.
 #'
 #'
 #' @docType data
@@ -16,8 +16,8 @@
 
 #' Data used to calculate weights
 #'
-#'Textdata from the 17. till the ongoing 20. period (2023) of the German Parliament.
-#'This data is already to run my weighted dictionary klotz_clara
+#'Sanple of textdata from the 17. till the ongoing 20. period (2023) of the German Parliament.
+#'This data is already prepared to be used in function run_weightdict for klotz_clara
 #'
 #' @docType data
 #'
@@ -72,7 +72,7 @@
 #' klotz_clara including the number of cases used for weight calculation
 #'
 #'As mentioned in the paper Klotz 2023 the low amount of cases for some patterns could be an issue.
-#'This dataframe allows to filter those cases using the colomn match_count to urther explore different versions of klotz_clara.
+#'This dataframe allows to filter those cases using the colomn match_count to further explore different versions of klotz_clara.
 #'
 #'
 #' @docType data

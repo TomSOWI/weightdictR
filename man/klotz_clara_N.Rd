@@ -12,7 +12,7 @@ klotz_clara_N
 }
 \description{
 As mentioned in the paper Klotz 2023 the low amount of cases for some patterns could be an issue.
-This dataframe allows to filter those cases using the colomn match_count to urther explore different versions of klotz_clara.
+This dataframe allows to filter those cases using the colomn match_count to further explore different versions of klotz_clara.
 }
 \references{
 Klotz, T. (2023). How can populism be identified in political texts taking context into account?: Development of a new populism dictionary

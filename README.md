@@ -38,17 +38,17 @@ toksBT17_20_clean <- corpus_to_compound_tokens(corpus = corpBT17_20,
   include_totals = TRUE)
 ```
 
-…this is already done since the data is included in the package
+…this is already done for a sample of 100 documents to run as an example
 
 ``` r
-#Clean and compound textdata
+#Clean and compound textdata sample
 weightdictR::toksBT17_20_clean
 
 #This is my dictionary
 weightdictR::klotz_clara
 
 
-#Deploy my weighted dictionary using the main function of this package: **run_weightdict**
+#Deploy my weighted dictionary using the main function of this package: run_weightdict
 
 result_klotz <- run_weightdict(
   text = weightdictR::toksBT17_20_clean,

@@ -17,12 +17,12 @@ Config/testthat/edition: 3
 Imports: 
     quanteda,
     dplyr,
-    magrittr,
-    regexhelpeR (>= 1.1.0)
+    regexhelpeR (>= 1.1.0),
+    magrittr
 URL: https://github.com/TomSOWI/weightdictR
 BugReports: https://github.com/TomSOWI/weightdictR/issues
 Depends: 
     R (>= 2.10)
 LazyData: true
-Remotes:  
+Remotes: 
     jogrue/regexhelpeR

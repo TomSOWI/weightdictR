@@ -11,8 +11,8 @@ A token .
 toksBT17_20_clean
 }
 \description{
-Textdata from the 17. till the ongoing 20. period (2023) of the German Parliament.
-This data is already to run my weighted dictionary klotz_clara
+Sanple of textdata from the 17. till the ongoing 20. period (2023) of the German Parliament.
+This data is already prepared to be used in function run_weightdict for klotz_clara
 }
 \references{
 Klotz, T. (2023). How can populism be identified in political texts taking context into account?: Development of a new populism dictionary
