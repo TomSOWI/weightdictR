@@ -33,7 +33,8 @@ library(dplyr)
 
 #Takes a long time to execute
 
-toksBT17_20_clean <- corpus_to_compound_tokens(corpus = corpBT17_20,
+toksBT17_20_clean <- corpus_to_compound_tokens(
+  corpus = corpBT17_20,
   pattern = popdictR::gruendl_terms,
   include_totals = TRUE)
 ```
@@ -66,7 +67,7 @@ result_klotz <- merge(result_klotz, party)
 totals <- data.frame(docname = quanteda::docnames(corpBT17_20), nsentences = nsentence(corpBT17_20), ntokens = ntoken(corpBT17_20))
 result_klotz <- merge(result_klotz, totals)
 
-# Final result
+#Final result
 result <- result_klotz %>%
   group_by(party) %>%
   reframe(
