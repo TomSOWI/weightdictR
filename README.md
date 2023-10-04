@@ -57,7 +57,7 @@ result_klotz <- run_weightdict(
   dict_name = "klotz"
   )
 
-# Individual context information -----------------------------------------------
+#Individual context information -----------------------------------------------
 
 #Add party 
 party <- data.frame(docname = quanteda::docnames(corpBT17_20), party = docvars(corpBT17_20)$party)
