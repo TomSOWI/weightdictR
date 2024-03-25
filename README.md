@@ -7,7 +7,7 @@
 <!-- badges: end -->
 
 The goal of weightdictR is to facialiate the deployment of weighted
-dictionaries especially ones including complex muliword patterns. The
+dictionaries especially ones including complex multiword patterns. The
 package was build taking inspirations from gruendls package
 [multidictR](https://github.com/jogrue/multidictR).
 
